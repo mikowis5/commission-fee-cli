@@ -1,8 +1,0 @@
-version: '3.8'
-services:
-  commission-fee:
-    build: .
-    # mount current dir so you can swap in a new input.csv without rebuilding
-    volumes:
-      - ./:/app
-    entrypoint: ["php", "/app/run"]

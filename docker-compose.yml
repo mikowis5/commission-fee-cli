@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    volumes:
+      - .:/app
+    environment:
+      - API_LAYER_EXCHANGE_RATES_API_KEY=${API_LAYER_EXCHANGE_RATES_API_KEY}
+
+  test:
+    build: .
+    volumes:
+      - .:/app
+    command: ./vendor/bin/pest
+    environment:
+      - API_LAYER_EXCHANGE_RATES_API_KEY=${API_LAYER_EXCHANGE_RATES_API_KEY}
