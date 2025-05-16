@@ -5,6 +5,7 @@ services:
     build: .
     volumes:
       - .:/app
+      - vendor:/app/vendor
     environment:
       - API_LAYER_EXCHANGE_RATES_API_KEY=${API_LAYER_EXCHANGE_RATES_API_KEY}
 
@@ -12,6 +13,8 @@ services:
     build: .
     volumes:
       - .:/app
+      - vendor:/app/vendor
     command: ./vendor/bin/pest
-    environment:
-      - API_LAYER_EXCHANGE_RATES_API_KEY=${API_LAYER_EXCHANGE_RATES_API_KEY}
+
+volumes:
+  vendor:

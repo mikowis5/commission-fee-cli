@@ -54,17 +54,17 @@ php run calculate-commission-fee example-input.csv
 * [Docker](https://docs.docker.com/get-docker/)
 * [Docker Compose](https://docs.docker.com/compose/install/)
 
-### 2. Build and run using Docker Compose:
-```
-docker-compose build
-```
-
-### 3. Run the app
+### 2. Build and run
 ```bash
+# Copy environment file (only needed for running the app, not for tests)
+cp .env.example .env
+
+# Build the container
+docker compose build
+
+# Run the app (requires API key in .env)
 docker compose run --rm app php run calculate-commission-fee example-input.csv
-```
 
-### 4. Run the tests
-```bash
+# Run the tests (no API key needed)
 docker compose run --rm test
 ```
